@@ -1,7 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ReactElement } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import HomePage from "./pages/Home";
 import MenuPage from "./pages/Menu";
-import { ReactElement } from "react";
+import ContactPage from "./pages/Contact";
+import AboutPage from "./pages/About";
 
 // Common Types
 type PageLink = {
@@ -35,7 +38,9 @@ type PageHandlerProps = {
 // Web Details
 const pages: PageLink[] = [
   { element: <HomePage />, path: "/" },
-  { element: <MenuPage />, path: "/menu" }
+  { element: <MenuPage />, path: "/menu" },
+  { element: <ContactPage />, path: "/contact" },
+  { element: <AboutPage />, path: "/about" }
 ]
 
 const headerLinks: NavLink[] = [
@@ -73,7 +78,7 @@ function Header({ links }: HeaderProps) {
         <ul>
           {links.map((item, index) => (
             <li key={index}>
-              <a href={item.href}>{item.text}</a>
+              <Link to={item.href}>{item.text}</Link>
             </li>
           ))}
         </ul>
@@ -94,9 +99,9 @@ function Footer({ navItems, socialLinks }: FooterProps) {
           </p>
           <div className="social-links">
             {socialLinks.map((platform, index) => (
-              <a key={index} href={platform.link}>
+              <Link key={index} to={platform.link}>
                 <span>{platform.symbol}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -105,7 +110,7 @@ function Footer({ navItems, socialLinks }: FooterProps) {
           <ul>
             {navItems.map((item, index) => (
               <li key={index}>
-                <a href={item.href}>{item.text}</a>
+                <Link to={item.href}>{item.text}</Link>
               </li>
             ))}
           </ul>

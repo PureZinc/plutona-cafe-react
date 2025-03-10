@@ -1,6 +1,7 @@
 import SpecialOfferPopup, { PopupProps } from "../components/Popup";
 import MenuList from "../components/MenuItem";
-import {ContactSection} from "../components/ContactForm";
+import { ContactSection } from "../components/ContactForm";
+import { Link } from "react-router-dom";
 
 
 const specialOfferDetails: PopupProps = {
@@ -37,7 +38,7 @@ function FeaturedMenu() {
       </div>
       <MenuList filter={"featured"} />
       <div className="container">
-        <a href="/menu" className="cta-button">View Full Menu</a>
+        <Link to="/menu" className="cta-button">View Full Menu</Link>
       </div>
     </section>
   );
@@ -63,7 +64,7 @@ function AboutSection() {
             and space. The café's design elements are inspired by vintage sci-fi,
             creating an atmosphere where past visions of the future come alive.
           </p>
-          <a href="/about" className="cta-button">Learn More</a>
+          <Link to="/about" className="cta-button">Learn More</Link>
         </div>
         <div className="about-image">
           <img src="/cafeinterior.jpeg" alt="Plutona Cafe Interior" />
