@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
+import MenuPage from "./pages/Menu";
 import { ReactElement } from "react";
 
 // Common Types
@@ -33,7 +34,8 @@ type PageHandlerProps = {
 
 // Web Details
 const pages: PageLink[] = [
-  {element: <HomePage />, path:"/"}
+  { element: <HomePage />, path: "/" },
+  { element: <MenuPage />, path: "/menu" }
 ]
 
 const headerLinks: NavLink[] = [

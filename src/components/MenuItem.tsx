@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import popupStyles from "../styles/popup.module.css";
 
-type FilterTypes = "featured" | "popular";
+export type FilterTypes = "featured" | "popular";
 
-type MenuItem = {
+export type MenuItem = {
     name: string;
     image: string;
     description: string;
