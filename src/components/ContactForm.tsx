@@ -44,16 +44,18 @@ const ContactInfo: React.FC = () => {
     }
 
     return (
-        <section className="contact-info">
-            <h2 className="uppercase">Contact Details</h2>
-            <p>We're always ready to receive your communications.</p>
-            <div>
-                {contactItems.map((item, index) => (
-                    <div key={index} className="contact-item">
-                        <i>{item.emoji}</i>
-                        <span>{item.details}</span>
-                    </div>
-                ))}
+        <div className="contact-container">
+            <div className="contact-info">
+                <h2 className="uppercase">Contact Details</h2>
+                <p>We're always ready to receive your communications.</p>
+                <div>
+                    {contactItems.map((item, index) => (
+                        <div key={index} className="contact-item">
+                            <i>{item.emoji}</i>
+                            <span>{item.details}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div>
                 <form onSubmit={postForm} method="POST">
@@ -69,8 +71,23 @@ const ContactInfo: React.FC = () => {
                     ))}
                 </form>
             </div>
-        </section>
+        </div>
     );
 };
 
-export default ContactInfo;
+function ContactSection() {
+  return (
+    <section id="contact" className="contact">
+      <div className="section-header">
+        <h2 className="uppercase">Establish Communication</h2>
+        <p>Send us a transmission or visit our coordinates below.</p>
+      </div>
+      <ContactInfo />
+    </section>
+  );
+};
+
+export {
+    ContactSection,
+    ContactInfo
+};

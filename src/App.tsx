@@ -82,49 +82,51 @@ function Header({ links }: HeaderProps) {
 
 function Footer({ navItems, socialLinks }: FooterProps) {
   return (
-    <footer className="footer-container">
-      <div className="footer-column">
-        <h3 className="uppercase">Plutona Cafe</h3>
-        <p>
-          Where space exploration meets coffee culture in a unique interstellar
-          experience.
-        </p>
-        <div className="social-links">
-          {socialLinks.map((platform, index) => (
-            <a key={index} href={platform.link}>
-              <span>{platform.symbol}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className="footer-column">
-        <h3 className="uppercase">Navigation</h3>
-        <ul>
-          {navItems.map((item, index) => (
-            <li key={index}>
-              <a href={item.href}>{item.text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="footer-column">
-        <h3 className="uppercase">Opening Hours</h3>
-        <ul>
-          <li>Monday - Friday: 07:00 - 23:00</li>
-          <li>Saturday: 08:00 - 00:00</li>
-          <li>Sunday: 08:00 - 22:00</li>
-          <li>Earth Standard Time</li>
-        </ul>
-      </div>
-      <div className="footer-column">
-        <h3 className="uppercase">Newsletter</h3>
-        <p>Subscribe to receive updates and special offers.</p>
-        <form>
-          <div className="form-group">
-            <input type="email" placeholder="Your email here" />
+    <footer>
+      <div className="footer-container">
+        <div className="footer-column">
+          <h3 className="uppercase">Plutona Cafe</h3>
+          <p>
+            Where space exploration meets coffee culture in a unique interstellar
+            experience.
+          </p>
+          <div className="social-links">
+            {socialLinks.map((platform, index) => (
+              <a key={index} href={platform.link}>
+                <span>{platform.symbol}</span>
+              </a>
+            ))}
           </div>
-          <button type="submit" className="cta-button">Subscribe</button>
-        </form>
+        </div>
+        <div className="footer-column">
+          <h3 className="uppercase">Navigation</h3>
+          <ul>
+            {navItems.map((item, index) => (
+              <li key={index}>
+                <a href={item.href}>{item.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="footer-column">
+          <h3 className="uppercase">Opening Hours</h3>
+          <ul>
+            <li>Monday - Friday: 07:00 - 23:00</li>
+            <li>Saturday: 08:00 - 00:00</li>
+            <li>Sunday: 08:00 - 22:00</li>
+            <li>Earth Standard Time</li>
+          </ul>
+        </div>
+        <div className="footer-column">
+          <h3 className="uppercase">Newsletter</h3>
+          <p>Subscribe to receive updates and special offers.</p>
+          <form>
+            <div className="form-group">
+              <input type="email" placeholder="Your email here" />
+            </div>
+            <button type="submit" className="cta-button">Subscribe</button>
+          </form>
+        </div>
       </div>
       <div className="copyright">
         <p>&copy; 2025 Plutona Cafe. All rights reserved across the known universe.</p>

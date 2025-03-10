@@ -1,4 +1,6 @@
 import SpecialOfferPopup, { PopupProps } from "../components/Popup";
+import MenuList from "../components/MenuItem";
+import {ContactSection} from "../components/ContactForm";
 
 
 const specialOfferDetails: PopupProps = {
@@ -33,7 +35,7 @@ function FeaturedMenu() {
           inspired by futuristic technology.
         </p>
       </div>
-      <div className="menu-grid" id="featured-menu-items" />
+      <MenuList filter={"featured"} />
       <div className="container">
         <a href="/menu" className="cta-button">View Full Menu</a>
       </div>
@@ -67,18 +69,6 @@ function AboutSection() {
           <img src="/cafeinterior.jpeg" alt="Plutona Cafe Interior" />
         </div>
       </div>
-    </section>
-  );
-};
-
-function ContactSection() {
-  return (
-    <section id="contact" className="contact">
-      <div className="section-header">
-        <h2 className="uppercase">Establish Communication</h2>
-        <p>Send us a transmission or visit our coordinates below.</p>
-      </div>
-      <div className="contact-container" id="contactContainer" />
     </section>
   );
 };
