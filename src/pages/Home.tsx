@@ -35,7 +35,7 @@ function FeaturedMenu() {
       </div>
       <div className="menu-grid" id="featured-menu-items" />
       <div className="container">
-        <a href="../pages/menu.html" className="cta-button">View Full Menu</a>
+        <a href="/menu" className="cta-button">View Full Menu</a>
       </div>
     </section>
   );
@@ -61,10 +61,10 @@ function AboutSection() {
             and space. The café's design elements are inspired by vintage sci-fi,
             creating an atmosphere where past visions of the future come alive.
           </p>
-          <a href="../pages/about.html" className="cta-button">Learn More</a>
+          <a href="/about" className="cta-button">Learn More</a>
         </div>
         <div className="about-image">
-          <img src="../images/cafeinterior.jpeg" alt="Plutona Cafe Interior" />
+          <img src="/cafeinterior.jpeg" alt="Plutona Cafe Interior" />
         </div>
       </div>
     </section>
@@ -86,11 +86,7 @@ function ContactSection() {
 function HomePage() {
   return (
     <>
-      <SpecialOfferPopup
-        header={specialOfferDetails.header}
-        content={specialOfferDetails.content}
-        duration={specialOfferDetails.duration}
-      />
+      <SpecialOfferPopup {...specialOfferDetails} />
       <HeroSection />
       <FeaturedMenu />
       <AboutSection />

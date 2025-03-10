@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../styles/popup.module.css";
 
 export interface PopupProps {
   header: string;
@@ -34,11 +35,12 @@ const PopupTimer: React.FC<{ duration: number; onComplete: () => void }> = ({
     ).padStart(2, "0")}`;
   };
 
-  return <div className="popup-timer">{formatTime(timeRemaining)}</div>;
+  return <div className={styles.popupTimer}>{formatTime(timeRemaining)}</div>;
 };
 
 const SpecialOfferPopup: React.FC<PopupProps> = ({ header, content, duration = 60 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,34 +56,48 @@ const SpecialOfferPopup: React.FC<PopupProps> = ({ header, content, duration = 6
 
   const closePopup = () => {
     setIsOpen(false);
+    setScrolled(true);
   };
 
-  return isOpen ? (
-    <div className="popup-overlay">
-      <div className="popup-container">
-        <div className="popup-control-panel">
-          {["green", "red", "yellow"].map((color) => (
-            <div key={color} className={`panel-light ${color}`}></div>
-          ))}
+  const onAccepted = () => {
+    alert("Mission Accepted");
+    setTimeout(() => {
+      setIsOpen(false);
+      setScrolled(true);
+    }, 500)
+  }
+
+  return (
+    <div className={`${styles.popupOverlay} ${isOpen ? styles.popupOverlayActive : ""}`}>
+      {!scrolled ? (
+        <div
+          className={`${styles.popupContainer} 
+          ${isOpen ? styles.popupContainerOpen : styles.popupContainerClose}`}
+        >
+          <div className={styles.popupControlPanel}>
+            {["green", "red", "yellow"].map((color) => (
+              <div key={color} className={`${styles.panelLight} ${styles[color]}`}></div>
+            ))}
+          </div>
+
+          <span className={styles.popupClose} onClick={closePopup}>
+            &times;
+          </span>
+
+          <div className={styles.popupContent}>
+            <h3>{header}</h3>
+            <p>{content}</p>
+          </div>
+
+          <PopupTimer duration={duration} onComplete={closePopup} />
+
+          <button className="cta-button" onClick={onAccepted}>
+            Accept Offer
+          </button>
         </div>
-
-        <span className="popup-close" onClick={closePopup}>
-          &times;
-        </span>
-
-        <div className="popup-content">
-          <h3>{header}</h3>
-          <p>{content}</p>
-        </div>
-
-        <PopupTimer duration={duration} onComplete={closePopup} />
-
-        <button className="cta-button" onClick={() => alert("Mission Accepted!")}>
-          Accept Offer
-        </button>
-      </div>
+      ) : null}
     </div>
-  ) : null;
+  )
 };
 
 export default SpecialOfferPopup;
